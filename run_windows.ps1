@@ -23,13 +23,6 @@ try {
     & $python -m pip install --upgrade pip
     & $python -m pip install -r requirements.txt
 
-    # ffmpeg prüfen
-    $ffmpeg = Get-Command ffmpeg -ErrorAction SilentlyContinue
-    if (-not $ffmpeg) {
-        Write-Warning "ffmpeg wurde nicht im PATH gefunden. WAV/OGG-Konvertierung könnte fehlschlagen."
-        Write-Host "Installationsoptionen: choco install ffmpeg  (Admin) oder scoop install ffmpeg"
-    }
-
     Write-Host "Starte tts_cli.py..."
     & $python tts_cli.py @Args
 }
